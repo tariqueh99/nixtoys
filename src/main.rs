@@ -10,6 +10,7 @@ fn main() -> anyhow::Result<()> {
 
     match cli.command {
         Commands::ColorPicker(args) => commands::cpick::run(args)?,
+        Commands::Doctor => commands::doctor::run()?,
     }
 
     Ok(())

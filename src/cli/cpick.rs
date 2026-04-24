@@ -6,7 +6,7 @@ pub struct PickArgs {
     #[arg(short, long, default_value_t = false)]
     pub autocopy: bool,
 
-    /// Define the output color type e.g. rgb, hex, cmyk, hsl. Default is hex
+    /// Define the output color type e.g. rgb, hex, cmyk, hsl
     #[arg(short, long, default_value_t = String::from("hex"))]
     pub format: String,
 

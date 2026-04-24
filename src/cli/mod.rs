@@ -19,4 +19,8 @@ pub enum Commands {
     /// Color picker tool
     #[command(name = "cpick")]
     ColorPicker(cpick::PickArgs),
+
+    /// Dependecies and installation checker
+    #[command(name = "doctor")]
+    Doctor,
 }
