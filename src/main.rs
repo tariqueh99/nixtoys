@@ -1,21 +1,18 @@
+mod cli;
+mod commands;
+mod utils;
+
+use anyhow::Ok;
 use clap::Parser;
+use cli::{Cli, Commands};
 
-#[derive(Parser, Debug)]
-#[command(version, about, long_about = None)]
-struct Args {
-    ///Name of the person to greet
-    #[arg(short, long)]
-    name: String,
+fn main() -> anyhow::Result<()> {
+    let cli = Cli::parse();
 
-    ///Number of time to greet
-    #[arg(short, long, default_value_t = 1)]
-    count: u8,
-}
-
-fn main() {
-    let args = Args::parse();
-
-    for _ in 0..args.count {
-        println!("Hello {}!", args.name);
+    match cli.command {
+        Commands::ColorPicker(args) => commands::cpick::run(args)?,
+        Commands::Doctor => commands::doctor::run(utils::syshelp::get_display_session_protocol())?,
     }
+
+    Ok(())
 }

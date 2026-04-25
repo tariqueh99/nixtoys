@@ -1,0 +1,4 @@
+Flow for doctor command
+nixtoys doctor
+
+at nixtoys level get all the system required tools
